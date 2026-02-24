@@ -69,12 +69,14 @@ const engagements = [
   }
 ];
 
+
 /* ============================================
    RENDER ENGAGEMENT CARDS
    ============================================ */
 function renderEngagements() {
   const grid = document.getElementById('engageGrid');
   if (!grid) return;
+
 
   engagements.forEach((e, i) => {
     const card = document.createElement('div');
@@ -100,6 +102,7 @@ function renderEngagements() {
   });
 }
 
+
 /* ============================================
    NAVBAR — SCROLL EFFECT
    ============================================ */
@@ -107,16 +110,19 @@ function initNavbar() {
   const navbar     = document.getElementById('navbar');
   const scrollTopBtn = document.getElementById('scrollTop');
 
+
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     navbar.classList.toggle('scrolled', y > 60);
     scrollTopBtn.classList.toggle('show', y > 350);
   }, { passive: true });
 
+
   scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
 
 /* ============================================
    MOBILE NAVIGATION
@@ -128,12 +134,14 @@ function initMobileNav() {
   const closeBtn    = document.getElementById('mobileNavClose');
   const navLinks    = mobileNav.querySelectorAll('a');
 
+
   function openNav() {
     mobileNav.classList.add('open');
     overlay.classList.add('show');
     ham.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
 
   function closeNav() {
     mobileNav.classList.remove('open');
@@ -142,17 +150,21 @@ function initMobileNav() {
     document.body.style.overflow = '';
   }
 
+
   ham.addEventListener('click', () => {
     mobileNav.classList.contains('open') ? closeNav() : openNav();
   });
 
+
   closeBtn.addEventListener('click', closeNav);
   overlay.addEventListener('click', closeNav);
+
 
   navLinks.forEach(link => {
     link.addEventListener('click', closeNav);
   });
 }
+
 
 /* ============================================
    INTERSECTION OBSERVER — FADE-UP ANIMATIONS
@@ -170,8 +182,10 @@ function initAnimations() {
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
 
+
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 }
+
 
 /* ============================================
    RE-OBSERVE après render dynamique des cards
@@ -189,8 +203,10 @@ function reObserveFadeUp() {
     { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
   );
 
+
   document.querySelectorAll('#engageGrid .fade-up').forEach(el => obs.observe(el));
 }
+
 
 /* ============================================
    ANIMATED COUNTERS
@@ -198,6 +214,7 @@ function reObserveFadeUp() {
 function animateCounter(el, target) {
   const duration = 1400; // ms
   const startTime = performance.now();
+
 
   function update(currentTime) {
     const elapsed  = currentTime - startTime;
@@ -209,12 +226,15 @@ function animateCounter(el, target) {
     if (progress < 1) requestAnimationFrame(update);
   }
 
+
   requestAnimationFrame(update);
 }
+
 
 function initCounters() {
   const strip = document.querySelector('.counter-strip');
   if (!strip) return;
+
 
   const counterObs = new IntersectionObserver(
     (entries) => {
@@ -230,8 +250,10 @@ function initCounters() {
     { threshold: 0.4 }
   );
 
+
   counterObs.observe(strip);
 }
+
 
 /* ============================================
    INIT
@@ -243,4 +265,59 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();     // Fade-up sur tous les éléments statiques
   reObserveFadeUp();    // Fade-up sur les cartes dynamiques
   initCounters();       // Compteurs animés
+  initCookieBanner();   // Bandeau cookies RGPD
 });
+
+/* ============================================
+   MODAL HELPERS
+   ============================================ */
+function openModal(id) {
+  document.querySelectorAll('.modal').forEach(m => m.classList.remove('open'));
+  document.getElementById('modalOverlay').classList.add('show');
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal').forEach(m => m.classList.remove('open'));
+  document.getElementById('modalOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllModals();
+});
+
+
+/* ============================================
+   COOKIE CONSENT (RGPD)
+   ============================================ */
+function acceptCookies() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function refuseCookies() {
+  localStorage.setItem('cookie_consent', 'refused');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function updateCookiePrefs() {
+  const analyticsOn = document.getElementById('toggleAnalytics').checked;
+  localStorage.setItem('cookie_analytics', analyticsOn ? '1' : '0');
+}
+
+function initCookieBanner() {
+  const consent = localStorage.getItem('cookie_consent');
+  if (!consent) {
+    setTimeout(() => {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.add('show');
+    }, 1200);
+  }
+  /* Restore analytics toggle state */
+  const toggle = document.getElementById('toggleAnalytics');
+  if (toggle && localStorage.getItem('cookie_analytics') === '1') {
+    toggle.checked = true;
+  }
+}

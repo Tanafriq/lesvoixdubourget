@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +14,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+
 <body>
+
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
@@ -34,6 +37,7 @@
     </div>
   </nav>
 
+
   <!-- MOBILE NAV -->
   <div class="mobile-nav" id="mobileNav">
     <button class="mobile-nav-close" id="mobileNavClose">
@@ -47,12 +51,14 @@
   </div>
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
+
   <!-- ===== HERO ===== -->
   <section class="hero" id="accueil">
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-orb hero-orb-3"></div>
     <div class="hero-grid">
+
 
       <div class="hero-text fade-up">
         <div class="hero-pill">
@@ -85,6 +91,7 @@
         </div>
       </div>
 
+
       <div class="hero-visual fade-up">
         <div class="hero-blob"></div>
         <img src="A1.jpeg" alt="Sofiane MILOUS – Candidat aux municipales Le Bourget 2026"
@@ -95,8 +102,10 @@
         </div>
       </div>
 
+
     </div>
   </section>
+
 
   <!-- ===== COUNTER STRIP ===== -->
   <div class="counter-strip">
@@ -120,10 +129,12 @@
     </div>
   </div>
 
+
   <!-- ===== ABOUT ===== -->
   <section class="section about" id="candidat">
     <div class="container">
       <div class="about-grid">
+
 
         <div class="about-photo-wrap fade-up">
           <img src="A1.jpeg" alt="Sofiane MILOUS" class="about-photo" />
@@ -132,6 +143,7 @@
             Le Bourget
           </div>
         </div>
+
 
         <div class="fade-up">
           <p class="section-eyebrow">Qui est-il ?</p>
@@ -169,9 +181,11 @@
           </div>
         </div>
 
+
       </div>
     </div>
   </section>
+
 
   <!-- ===== ENGAGEMENTS ===== -->
   <section class="section engagements" id="engagements">
@@ -187,6 +201,7 @@
       <div class="engage-grid" id="engageGrid"></div>
     </div>
   </section>
+
 
   <!-- ===== ELECTION ===== -->
   <section class="section election-section" id="election">
@@ -225,6 +240,7 @@
     </div>
   </section>
 
+
   <!-- ===== CONTACT ===== -->
   <section class="section contact" id="contact">
     <div class="container">
@@ -238,6 +254,7 @@
         </p>
       </div>
       <div class="contact-grid">
+
 
         <!-- GAUCHE -->
         <div class="contact-left">
@@ -288,11 +305,13 @@
           </div>
         </div>
 
+
         <!-- DROITE -->
         <div class="contact-card fade-up">
           <div class="contact-card-title">
             <i class="fas fa-address-book"></i> Contact
           </div>
+
 
           <a href="tel:0751191202" class="contact-channel" style="--cc: var(--green)">
             <div class="contact-channel-icon">
@@ -306,6 +325,7 @@
               </span>
             </div>
           </a>
+
 
           <a href="mailto:sofianemilous@lebourget2026.fr" class="contact-channel" style="--cc: var(--blue)">
             <div class="contact-channel-icon contact-channel-icon--blue">
@@ -322,6 +342,7 @@
             </div>
           </a>
 
+
           <div class="contact-availability">
             <i class="fas fa-clock"></i>
             <p>
@@ -332,9 +353,11 @@
           </div>
         </div>
 
+
       </div>
     </div>
   </section>
+
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -379,21 +402,197 @@
           <li><a href="#engagements">Solidarité</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h5>Légal &amp; RGPD</h5>
+        <ul>
+          <li><a href="#" onclick="openModal('modalCGU');return false;">Mentions légales &amp; CGU</a></li>
+          <li><a href="#" onclick="openModal('modalConfidentialite');return false;">Politique de confidentialité</a></li>
+          <li><a href="#" onclick="openModal('modalCookies');return false;">Gestion des cookies</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Sofiane MILOUS – Tous droits réservés · Les Voix du Bourget</p>
+      <div class="footer-rgpd-links">
+        <a href="#" class="footer-rgpd-link" onclick="openModal('modalCGU');return false;">CGU &amp; Mentions légales</a>
+        <span class="footer-rgpd-sep">·</span>
+        <a href="#" class="footer-rgpd-link" onclick="openModal('modalConfidentialite');return false;">Politique de confidentialité</a>
+        <span class="footer-rgpd-sep">·</span>
+        <a href="#" class="footer-rgpd-link" onclick="openModal('modalCookies');return false;">Gestion des cookies</a>
+      </div>
       <p class="footer-legal">
-        Site de campagne électorale – Élections Municipales Le Bourget
+        Site de campagne électorale – Élections Municipales Le Bourget ·
+        Données traitées conformément au <abbr title="Règlement Général sur la Protection des Données">RGPD</abbr>
       </p>
     </div>
   </footer>
+
 
   <!-- SCROLL TO TOP -->
   <button id="scrollTop" aria-label="Retour en haut">
     <i class="fas fa-arrow-up"></i>
   </button>
 
+
+
+  <!-- ===== COOKIE BANNER ===== -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <i class="fas fa-cookie-bite cookie-icon"></i>
+        <div>
+          <strong>Ce site utilise des cookies</strong>
+          <p>Nous utilisons uniquement des cookies strictement nécessaires. Conformément au <strong>RGPD</strong>, vous pouvez gérer vos préférences à tout moment.</p>
+        </div>
+      </div>
+      <div class="cookie-banner-actions">
+        <button class="btn-cookie btn-cookie-refuse" onclick="refuseCookies()">Refuser</button>
+        <button class="btn-cookie btn-cookie-accept" onclick="acceptCookies()">Accepter</button>
+        <a href="#" class="cookie-more" onclick="openModal('modalCookies');return false;">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL OVERLAY ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()"></div>
+
+  <!-- ===== MODAL CGU / MENTIONS LÉGALES ===== -->
+  <div class="modal" id="modalCGU" role="dialog" aria-modal="true" aria-labelledby="cgu-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="cgu-title"><i class="fas fa-file-contract"></i> Mentions légales &amp; CGU</h2>
+      <button class="modal-close" onclick="closeAllModals()" aria-label="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <span class="modal-update">Dernière mise à jour : Février 2026</span>
+
+      <h3>1. Éditeur du site</h3>
+      <p><strong>Responsable de publication :</strong> Sofiane MILOUS<br/>
+      <strong>Mouvement :</strong> Les Voix du Bourget<br/>
+      <strong>Adresse :</strong> Le Bourget, Seine-Saint-Denis (93)<br/>
+      <strong>Email :</strong> <a href="mailto:sofianemilous@lebourget2026.fr">sofianemilous@lebourget2026.fr</a><br/>
+      <strong>Téléphone :</strong> 07 51 19 12 02<br/>
+      <strong>Hébergeur :</strong> À préciser</p>
+
+      <h3>2. Objet du site</h3>
+      <p>Le site <strong>lebourget2026.fr</strong> est un site de campagne électorale pour les Élections Municipales de Le Bourget (93) des 15 et 22 mars 2026. Il a pour objet exclusif la présentation du programme et la communication institutionnelle de la campagne de Sofiane MILOUS.</p>
+
+      <h3>3. Conditions d'utilisation</h3>
+      <p>L'accès au site est libre et gratuit. Tout utilisateur s'engage à un usage conforme aux lois en vigueur. La campagne se réserve le droit de modifier ou interrompre le site sans préavis.</p>
+
+      <h3>4. Propriété intellectuelle</h3>
+      <p>L'ensemble des contenus (textes, images, logos, charte graphique) est la propriété exclusive de la campagne Les Voix du Bourget ou de ses contributeurs et est protégé par le droit d'auteur. Toute reproduction non autorisée est strictement interdite.</p>
+
+      <h3>5. Limitation de responsabilité</h3>
+      <p>Le site est fourni « en l'état ». La campagne ne saurait être tenue responsable des dommages directs ou indirects résultant de son utilisation ou de l'impossibilité d'y accéder.</p>
+
+      <h3>6. Droit applicable</h3>
+      <p>Les présentes mentions légales et CGU sont soumises au droit français. Tout litige relève de la compétence des tribunaux de Paris.</p>
+    </div>
+  </div>
+
+  <!-- ===== MODAL POLITIQUE DE CONFIDENTIALITÉ ===== -->
+  <div class="modal" id="modalConfidentialite" role="dialog" aria-modal="true" aria-labelledby="conf-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="conf-title"><i class="fas fa-shield-alt"></i> Politique de Confidentialité</h2>
+      <button class="modal-close" onclick="closeAllModals()" aria-label="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <span class="modal-update">Conforme au RGPD · Règlement UE 2016/679 · Mise à jour : Février 2026</span>
+
+      <h3>1. Responsable du traitement</h3>
+      <p><strong>Sofiane MILOUS</strong> – Campagne Les Voix du Bourget<br/>
+      <strong>Email :</strong> <a href="mailto:sofianemilous@lebourget2026.fr">sofianemilous@lebourget2026.fr</a></p>
+
+      <h3>2. Données collectées</h3>
+      <p>Ce site ne collecte <strong>aucune donnée personnelle</strong> via des formulaires. Les seules données pouvant être traitées sont :</p>
+      <ul>
+        <li>Données de navigation anonymisées (adresse IP, pages consultées) à des fins statistiques</li>
+        <li>Données transmises volontairement par e-mail ou téléphone</li>
+      </ul>
+
+      <h3>3. Finalités &amp; base légale</h3>
+      <p>Les données sont traitées pour : répondre aux demandes de contact (<em>base légale : consentement</em>, Art. 6.1.a RGPD), assurer la sécurité technique du site (<em>base légale : intérêt légitime</em>, Art. 6.1.f RGPD).</p>
+
+      <h3>4. Durée de conservation</h3>
+      <p>Données de contact : <strong>3 ans</strong> après le dernier échange. Logs techniques : <strong>12 mois</strong>.</p>
+
+      <h3>5. Vos droits RGPD</h3>
+      <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Accès</strong> – obtenir une copie de vos données</li>
+        <li><strong>Rectification</strong> – corriger des données inexactes</li>
+        <li><strong>Effacement</strong> – demander la suppression (« droit à l'oubli »)</li>
+        <li><strong>Portabilité</strong> – recevoir vos données dans un format structuré</li>
+        <li><strong>Opposition</strong> – vous opposer au traitement</li>
+        <li><strong>Limitation</strong> – restreindre le traitement</li>
+      </ul>
+      <p>Pour exercer ces droits : <a href="mailto:sofianemilous@lebourget2026.fr">sofianemilous@lebourget2026.fr</a><br/>
+      Réclamation possible auprès de la <strong>CNIL</strong> : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+
+      <h3>6. Sécurité</h3>
+      <p>Des mesures techniques et organisationnelles appropriées sont mises en place pour protéger vos données contre tout accès non autorisé, perte ou altération.</p>
+    </div>
+  </div>
+
+  <!-- ===== MODAL GESTION DES COOKIES ===== -->
+  <div class="modal" id="modalCookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="cookies-title"><i class="fas fa-cookie-bite"></i> Gestion des Cookies</h2>
+      <button class="modal-close" onclick="closeAllModals()" aria-label="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <span class="modal-update">Conformément à la directive ePrivacy &amp; au RGPD</span>
+
+      <h3>Qu'est-ce qu'un cookie ?</h3>
+      <p>Un cookie est un petit fichier texte déposé sur votre terminal lors de la visite d'un site web. Il permet au site de mémoriser vos préférences ou de collecter des informations de navigation.</p>
+
+      <h3>Cookies utilisés sur ce site</h3>
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <div>
+            <strong>🔒 Cookies strictement nécessaires</strong>
+            <p>Indispensables au fonctionnement du site. Ne peuvent pas être désactivés.</p>
+          </div>
+          <span class="cookie-badge cookie-badge-required">Obligatoire</span>
+        </div>
+        <table class="cookie-table">
+          <thead><tr><th>Nom</th><th>Finalité</th><th>Durée</th></tr></thead>
+          <tbody>
+            <tr><td>cookie_consent</td><td>Mémorise votre choix de consentement</td><td>12 mois</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <div>
+            <strong>📊 Cookies analytiques</strong>
+            <p>Mesurent l'audience du site de façon anonyme. Désactivés par défaut.</p>
+          </div>
+          <label class="cookie-toggle">
+            <input type="checkbox" id="toggleAnalytics" onchange="updateCookiePrefs()">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <div>
+            <strong>🚫 Cookies publicitaires</strong>
+            <p>Aucun cookie publicitaire ou de ciblage n'est utilisé sur ce site.</p>
+          </div>
+          <span class="cookie-badge cookie-badge-none">Non utilisé</span>
+        </div>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn-cookie btn-cookie-refuse" onclick="refuseCookies();closeAllModals()">Tout refuser</button>
+        <button class="btn-cookie btn-cookie-accept" onclick="acceptCookies();closeAllModals()">Tout accepter</button>
+      </div>
+      <p class="cookie-footer-note">Pour en savoir plus : <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs" target="_blank" rel="noopener noreferrer">CNIL – Cookies et traceurs</a></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 
 </html>
