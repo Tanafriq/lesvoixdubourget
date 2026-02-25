@@ -156,7 +156,7 @@ function initMobileNav() {
   });
 
 
-  closeBtn.addEventListener('click', closeNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
   overlay.addEventListener('click', closeNav);
 
 
@@ -265,5 +265,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();     // Fade-up sur tous les éléments statiques
   reObserveFadeUp();    // Fade-up sur les cartes dynamiques
   initCounters();       // Compteurs animés
-  // Cookie banner + Modals gérés en inline dans index.html
 });
